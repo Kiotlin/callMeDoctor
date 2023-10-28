@@ -1,7 +1,17 @@
 import Image from 'next/image';
 import { dataUrl } from './constants';
 
-export default function Poster(props: any) {
+export function PosterOuter({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen min-w-full bg-end-field bg-center bg-cover">
+      <div className="flex items-center justify-between w-screen h-screen backdrop-blur backdrop-brightness-25 font-mono p-32">
+        {children}
+      </div>
+    </div>
+  );
+}
+
+export function Poster(props: React.HTMLProps<HTMLDivElement>) {
   return (
     <>
       <div {...props}>
@@ -58,5 +68,13 @@ export default function Poster(props: any) {
         </div>
       </div>
     </>
+  );
+}
+
+export default function PosterPage() {
+  return (
+    <PosterOuter>
+      <Poster />
+    </PosterOuter>
   );
 }

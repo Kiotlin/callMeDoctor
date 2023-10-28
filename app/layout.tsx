@@ -16,14 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body
-        className={
-          'bg-end-field bg-center bg-repeat-space backdrop-blur backdrop-brightness-50 ' +
-          inter.className
-        }
-      >
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
