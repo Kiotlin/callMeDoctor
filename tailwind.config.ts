@@ -12,7 +12,8 @@ const config: Config = {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-        'end-field': "url('/bg.png')"
+        'end-field': "url('/bg.png')",
+        'start-field': "url('/end-field-bg.jpg')"
       },
       backdropBrightness: {
         25: '.25'
