@@ -62,7 +62,6 @@ const SloganPage: React.FC = () => {
           width={120}
           height={24}
           alt="YJ Logo"
-          priority
           placeholder="blur"
           blurDataURL={dataUrl}
         />
@@ -72,7 +71,6 @@ const SloganPage: React.FC = () => {
           width={140}
           height={24}
           alt="YJ Logo"
-          priority
           placeholder="blur"
           blurDataURL={dataUrl}
         />

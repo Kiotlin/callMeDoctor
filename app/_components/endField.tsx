@@ -6,7 +6,7 @@ const EndFieldOuter: React.FC<{
 }> = ({ children }) => {
   return (
     <div className="min-h-screen min-w-full bg-start-field bg-center bg-cover">
-      <div className="flex items-center justify-between w-screen h-screen backdrop-blur backdrop-brightness-25 p-32">
+      <div className="flex items-center justify-between w-screen h-screen backdrop-blur backdrop-brightness-0 p-32">
         {children}
       </div>
     </div>
@@ -23,7 +23,6 @@ const EndFieldPage = () => {
           width={120}
           height={120}
           alt="EndField LOGO"
-          priority
           placeholder="blur"
           blurDataURL={dataUrl}
         />

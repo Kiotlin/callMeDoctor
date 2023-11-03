@@ -22,36 +22,36 @@ export function Poster(props: React.HTMLProps<HTMLDivElement>) {
           width={200}
           height={24}
           alt="YJ Logo"
-          priority
           placeholder="blur"
           blurDataURL={dataUrl}
         />
         <p className="pt-2">Author & Composer</p>
-        <div className="flex flex-row">
-          <div className="flex-col text-4xl font-extrabold">
+        <div className="flex flex-row mt-2">
+          <div className="flex-col text-5xl font-extrabold leading-[2rem]">
             <p>PHEONIX</p>
-            <p className="">ON THE RISE</p>
+            <p>ON THE RISE</p>
           </div>
           <Image
-            src={'./author.svg'}
-            width={70}
-            height={70}
+            src={'./CUBE_AKN_EF.svg'}
+            className="my-auto"
+            width={65}
+            height={65}
+            style={{ height: 65, width: 65 }}
             alt="author logo"
-            priority
             placeholder="blur"
             blurDataURL={dataUrl}
           />
         </div>
-        <div className="text-slate-300">
+        <div className="text-slate-300 mt-2 mb-2">
           <p>{'< Pheonix on the Rise >'}</p>
           <p>{'by Alexander Rudd (feat. Hero Baldwin)'}</p>
         </div>
         <Image
-          src="./dna.svg"
+          src="./DNA.svg"
+          className="mb-2"
           width={70}
           height={70}
           alt="dna logo"
-          priority
           placeholder="blur"
           blurDataURL={dataUrl}
         />
