@@ -5,8 +5,8 @@ import { Inter } from 'next/font/google';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Call Me Doctor',
-  description: 'A HYPERGRYPH style poster.'
+  title: 'Welcome to Arknight Endfield',
+  description: 'Entry page of Endfield.'
 };
 
 export default function RootLayout({
