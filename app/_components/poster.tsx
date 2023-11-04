@@ -9,9 +9,34 @@ export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
   const animeRef = React.useRef(null);
   const blurRef = React.useRef(null);
   const router = useRouter();
+  const [scrolledDown, setScrolledDown] = React.useState(false);
+  const [is1stTime, setIs1stTime] = React.useState(true);
 
   const handleWheelDown = (e: WheelEvent) => {
     if (e.deltaY > 0) {
+      setScrolledDown(true);
+    }
+  };
+
+  React.useEffect(() => {
+    if (is1stTime) {
+      gsap.fromTo(
+        animeRef.current,
+        {
+          opacity: 0
+        },
+        {
+          opacity: 1,
+          delay: 0.2,
+          duration: 2,
+          ease: Power2.easeIn,
+          onComplete: () => window.addEventListener('wheel', handleWheelDown)
+        }
+      );
+      setIs1stTime(false);
+    }
+
+    if (scrolledDown) {
       gsap.to(animeRef.current, {
         opacity: 0,
         delay: 0.2,
@@ -20,28 +45,11 @@ export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
         onComplete: () => router.push('/soon')
       });
     }
-  };
-
-  React.useEffect(() => {
-    const anime = gsap.fromTo(
-      animeRef.current,
-      {
-        opacity: 0
-      },
-      {
-        opacity: 1,
-        delay: 0.2,
-        duration: 2,
-        ease: Power2.easeIn,
-        onComplete: () => window.addEventListener('wheel', handleWheelDown)
-      }
-    );
 
     return () => {
-      anime.kill();
       window.removeEventListener('wheel', handleWheelDown);
     };
-  }, []);
+  }, [scrolledDown]);
 
   return (
     <>
