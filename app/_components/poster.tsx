@@ -39,6 +39,7 @@ export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
 
     return () => {
       anime.kill();
+      window.removeEventListener('wheel', handleWheelDown);
     };
   }, []);
 
