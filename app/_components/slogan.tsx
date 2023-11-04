@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { dataUrl } from './constants';
 import React from 'react';
+import gsap from 'gsap';
+import { Power2 } from 'gsap/all';
 
 const PlaceHolder: React.FC = () => {
   return React.createElement('div', null, null);
@@ -29,9 +31,31 @@ const sloganTextList: string[] = [
 const SloganOuter: React.FC<{
   children: React.ReactNode;
 }> = ({ children }) => {
+  const blurRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const blurAnime = gsap.fromTo(
+      blurRef.current,
+      { backdropFilter: 'blur(8px) brightness(25%)' },
+      {
+        backdropFilter: 'blur(8px) brightness(0%)',
+        delay: 0.5,
+        duration: 3,
+        ease: Power2.easeOut
+      }
+    );
+
+    return () => {
+      blurAnime.kill();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen min-w-full bg-black bg-center">
-      <div className="flex flex-col items-center justify-between w-screen h-screen p-32">
+    <div className="min-h-screen min-w-full bg-end-field bg-center bg-cover">
+      <div
+        ref={blurRef}
+        className="flex flex-col items-center justify-between w-screen h-screen p-32 backdrop-blur backdrop-brightness-25"
+      >
         {children}
       </div>
     </div>
