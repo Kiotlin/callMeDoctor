@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     siteName: 'Endfield',
     images: [
       {
-        url: 'https://endfield.vercel.app/og-image.png',
+        url: 'https://call-me-doctor.vercel.app/og-image.png',
         width: 1200,
         height: 630,
         alt: 'Endfield OG Image'
