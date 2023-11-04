@@ -28,10 +28,9 @@ const sloganTextList: string[] = [
   'front'
 ];
 
-const SloganOuter: React.FC<{
-  children: React.ReactNode;
-}> = ({ children }) => {
+const SloganPage: React.FC = () => {
   const blurRef = React.useRef(null);
+  const logoRef = React.useRef(null);
 
   React.useEffect(() => {
     const blurAnime = gsap.fromTo(
@@ -44,9 +43,15 @@ const SloganOuter: React.FC<{
         ease: Power2.easeOut
       }
     );
+    const logoAnime = gsap.fromTo(
+      logoRef.current,
+      { opacity: 0 },
+      { opacity: 1, delay: 1, duration: 1, ease: Power2.easeIn }
+    );
 
     return () => {
       blurAnime.kill();
+      logoAnime.kill();
     };
   }, []);
 
@@ -56,50 +61,42 @@ const SloganOuter: React.FC<{
         ref={blurRef}
         className="flex flex-col items-center justify-between w-screen h-screen p-32 backdrop-blur backdrop-brightness-25"
       >
-        {children}
-      </div>
-    </div>
-  );
-};
-
-const SloganPage: React.FC = () => {
-  return (
-    <SloganOuter>
-      <PlaceHolder />
-      <div className="flex flex-col justify-center items-center gap-3">
-        <Image
-          className="invert"
-          src="/INVERTED_TRIANGLE.svg"
-          width={15}
-          height={15}
-          alt="triangle"
-        />
-        <div className="flex flex-row gap-5">
-          {sloganTextList.map((s, i) => (
-            <SloganFont text={s} key={i} />
-          ))}
+        <PlaceHolder />
+        <div className="flex flex-col justify-center items-center gap-3">
+          <Image
+            className="invert"
+            src="/INVERTED_TRIANGLE.svg"
+            width={15}
+            height={15}
+            alt="triangle"
+          />
+          <div className="flex flex-row gap-5">
+            {sloganTextList.map((s, i) => (
+              <SloganFont text={s} key={i} />
+            ))}
+          </div>
+        </div>
+        <div ref={logoRef} className="flex flex-row opacity-0">
+          <Image
+            src="/yj-logo.svg"
+            width={120}
+            height={24}
+            alt="YJ Logo"
+            placeholder="blur"
+            blurDataURL={dataUrl}
+          />
+          <Image
+            src="/MOUNTAIN_CONTOUR.svg"
+            className="invert"
+            width={140}
+            height={24}
+            alt="YJ Logo"
+            placeholder="blur"
+            blurDataURL={dataUrl}
+          />
         </div>
       </div>
-      <div className="flex flex-row">
-        <Image
-          src="/yj-logo.svg"
-          width={120}
-          height={24}
-          alt="YJ Logo"
-          placeholder="blur"
-          blurDataURL={dataUrl}
-        />
-        <Image
-          src="/MOUNTAIN_CONTOUR.svg"
-          className="invert"
-          width={140}
-          height={24}
-          alt="YJ Logo"
-          placeholder="blur"
-          blurDataURL={dataUrl}
-        />
-      </div>
-    </SloganOuter>
+    </div>
   );
 };
 
