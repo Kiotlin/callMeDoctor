@@ -10,6 +10,7 @@ import { GrommetIconsPlayFill } from '../_components/icons/PlayFill';
 import Link from 'next/link';
 import { githubRepoUrl, twitterUrl } from '../_components/constants';
 import { useAudio } from '../_hooks/audio';
+import Image from 'next/image';
 
 const replayAudio: string = '/audio/char_detail_enter.mp3';
 
@@ -80,7 +81,16 @@ const ChoicePage: React.FC = () => {
           ref={contentRef}
           className="flex flex-col items-center justify-center w-screen h-screen p-32"
         >
-          <div className="flex flex-col justify-center items-center gap-4">
+          <div className="fixed top-14 left-14">
+            <Image
+              src="/arknights_prefix_pattern.png"
+              className="invert"
+              width={100}
+              height={100}
+              alt="arknights_prefix"
+            />
+          </div>
+          <div className="flex flex-col justify-center items-center gap-10">
             <div className="flex flex-row gap-3">
               <SvgSpinnersPulseMultiple className="h-auto" />
               <p>Wanna Play Again?</p>
