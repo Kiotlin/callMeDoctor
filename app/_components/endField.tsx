@@ -6,8 +6,12 @@ import { Power2 } from 'gsap/all';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { GrommetIconsFormDown } from './icons/FormDown';
+import { useAudio } from '../_hooks/audio';
+
+const switchPageAudio: string = '/audio/char_list_enter.mp3';
 
 const EndFieldPage: React.FC = () => {
+  const audio = useAudio(switchPageAudio);
   const router = useRouter();
   const blurRef = React.useRef(null);
   const logoRef = React.useRef(null);
@@ -17,6 +21,7 @@ const EndFieldPage: React.FC = () => {
   const handleWheelDown = (e: WheelEvent) => {
     if (e.deltaY > 0) {
       setScrolledDown(true);
+      audio.play();
     }
   };
 

@@ -4,8 +4,12 @@ import React from 'react';
 import gsap from 'gsap';
 import { Power2 } from 'gsap/all';
 import { useRouter } from 'next/navigation';
+import { useAudio } from '../_hooks/audio';
+
+const switchPageAudio: string = '/audio/char_list_enter.mp3';
 
 export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
+  const audio = useAudio(switchPageAudio);
   const animeRef = React.useRef(null);
   const blurRef = React.useRef(null);
   const router = useRouter();
@@ -15,6 +19,7 @@ export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
   const handleWheelDown = (e: WheelEvent) => {
     if (e.deltaY > 0) {
       setScrolledDown(true);
+      audio.play();
     }
   };
 

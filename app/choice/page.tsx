@@ -9,8 +9,12 @@ import { GrommetIconsTwitter } from '../_components/icons/Twitter';
 import { GrommetIconsPlayFill } from '../_components/icons/PlayFill';
 import Link from 'next/link';
 import { githubRepoUrl, twitterUrl } from '../_components/constants';
+import { useAudio } from '../_hooks/audio';
+
+const replayAudio: string = '/audio/char_detail_enter.mp3';
 
 const ChoicePage: React.FC = () => {
+  const audio = useAudio(replayAudio);
   const router = useRouter();
   const contentRef = React.useRef(null);
   const blurRef = React.useRef(null);
@@ -20,6 +24,7 @@ const ChoicePage: React.FC = () => {
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setClicked(true);
+    audio.play();
   };
 
   React.useEffect(() => {

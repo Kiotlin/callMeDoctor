@@ -4,6 +4,7 @@ import React from 'react';
 import gsap from 'gsap';
 import { Power2 } from 'gsap/all';
 import { useRouter } from 'next/navigation';
+import { useAudio } from '../_hooks/audio';
 
 const PlaceHolder: React.FC = () => {
   return React.createElement('div', null, null);
@@ -29,7 +30,10 @@ const sloganTextList: string[] = [
   'front'
 ];
 
+const switchPageAudio: string = '/audio/char_list_enter.mp3';
+
 const SloganPage: React.FC = () => {
+  const audio = useAudio(switchPageAudio);
   const blurRef = React.useRef(null);
   const logoRef = React.useRef(null);
   const contentRef = React.useRef(null);
@@ -40,6 +44,7 @@ const SloganPage: React.FC = () => {
   const handleWheelDown = (e: WheelEvent) => {
     if (e.deltaY > 0) {
       setScrolledDown(true);
+      audio.play();
     }
   };
 
