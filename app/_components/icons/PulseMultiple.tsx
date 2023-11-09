@@ -9,7 +9,7 @@ export function SvgSpinnersPulseMultiple(props: SVGProps<SVGSVGElement>) {
       viewBox="0 0 24 24"
       {...props}
     >
-      <circle cx="12" cy="12" r="0" fill="currentColor">
+      <circle cx="12" cy="12" r="0" fill="#888888">
         <animate
           id="svgSpinnersPulseMultiple0"
           fill="freeze"
@@ -30,7 +30,7 @@ export function SvgSpinnersPulseMultiple(props: SVGProps<SVGSVGElement>) {
           values="1;0"
         ></animate>
       </circle>
-      <circle cx="12" cy="12" r="0" fill="currentColor">
+      <circle cx="12" cy="12" r="0" fill="#888888">
         <animate
           id="svgSpinnersPulseMultiple1"
           fill="freeze"
@@ -51,7 +51,7 @@ export function SvgSpinnersPulseMultiple(props: SVGProps<SVGSVGElement>) {
           values="1;0"
         ></animate>
       </circle>
-      <circle cx="12" cy="12" r="0" fill="currentColor">
+      <circle cx="12" cy="12" r="0" fill="#888888">
         <animate
           id="svgSpinnersPulseMultiple2"
           fill="freeze"

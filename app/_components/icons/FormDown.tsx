@@ -11,7 +11,7 @@ export function GrommetIconsFormDown(props: SVGProps<SVGSVGElement>) {
     >
       <path
         fill="none"
-        stroke="currentColor"
+        stroke="white"
         strokeWidth="2"
         d="m18 9l-6 6l-6-6"
       ></path>

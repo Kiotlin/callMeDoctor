@@ -5,6 +5,8 @@ import gsap from 'gsap';
 import { Power2 } from 'gsap/all';
 import { useRouter } from 'next/navigation';
 import { useAudio } from '../_hooks/audio';
+import HypergryphLogo from './icons/HypergryphLogo';
+import CubeAknEf from './icons/CubeAknEf';
 
 const switchPageAudio: string = '/audio/char_list_enter.mp3';
 
@@ -66,32 +68,22 @@ export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
           ref={blurRef}
           className="flex items-center justify-between w-screen h-screen backdrop-blur backdrop-brightness-25 font-mono p-32"
         >
-          <div ref={animeRef}>
-            <p className="">Music produced by</p>
-            <Image
-              src="/yj-logo.svg"
-              className="dark:invert"
-              width={200}
-              height={24}
-              alt="YJ Logo"
-              placeholder="blur"
-              blurDataURL={dataUrl}
-            />
+          <div ref={animeRef} className="text-white">
+            <p>Music produced by</p>
+            <HypergryphLogo className="w-48 fill-white" />
             <p className="pt-2">Author & Composer</p>
             <div className="flex flex-row mt-2">
-              <div className="flex-col text-5xl font-extrabold leading-[2rem]">
+              <div className="flex-col text-4xl font-sans font-extrabold leading-[1.7rem]">
                 <p>PHEONIX</p>
-                <p>ON THE RISE</p>
+                <div className="flex gap-2">
+                  <span>ON</span>
+                  <span>THE</span>
+                  <span>RISE</span>
+                </div>
               </div>
-              <Image
-                src={'./CUBE_AKN_EF.svg'}
+              <CubeAknEf
                 className="my-auto"
-                width={65}
-                height={65}
-                style={{ height: 65, width: 65 }}
-                alt="author logo"
-                placeholder="blur"
-                blurDataURL={dataUrl}
+                style={{ width: 54, height: 54 }}
               />
             </div>
             <div className="text-slate-300 mt-2 mb-2">
@@ -101,8 +93,8 @@ export function PosterPage(props: React.HTMLProps<HTMLDivElement>) {
             <Image
               src="./DNA.svg"
               className="mb-2"
-              width={70}
-              height={70}
+              width={60}
+              height={60}
               alt="dna logo"
               placeholder="blur"
               blurDataURL={dataUrl}

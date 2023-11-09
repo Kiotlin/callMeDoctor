@@ -93,7 +93,7 @@ const ChoicePage: React.FC = () => {
           <div className="flex flex-col justify-center items-center gap-10">
             <div className="flex flex-row gap-3">
               <SvgSpinnersPulseMultiple className="h-auto" />
-              <p>Wanna Play Again?</p>
+              <p className="text-white">Wanna Play Again?</p>
               <SvgSpinnersPulseMultiple className="h-auto" />
             </div>
             <button
@@ -111,7 +111,7 @@ const ChoicePage: React.FC = () => {
             >
               <GrommetIconsGithub className="w-5 h-5" />
             </Link>
-            <p>|</p>
+            <p className="text-white">|</p>
             <Link
               href={twitterUrl}
               className="opacity-50 hover:opacity-100 transition-opacity ease-in-out duration-300"

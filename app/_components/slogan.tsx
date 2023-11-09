@@ -1,10 +1,11 @@
 import Image from 'next/image';
-import { dataUrl } from './constants';
 import React from 'react';
 import gsap from 'gsap';
 import { Power2 } from 'gsap/all';
 import { useRouter } from 'next/navigation';
 import { useAudio } from '../_hooks/audio';
+import HypergryphLogo from './icons/HypergryphLogo';
+import MountainContourLogo from './icons/MountainContourLogo';
 
 const PlaceHolder: React.FC = () => {
   return React.createElement('div', null, null);
@@ -14,7 +15,7 @@ const SloganFont: React.FC<{
   text: string | undefined;
 }> = ({ text = 'TEXT' }) => {
   return (
-    <p className="text-sm font-extralight tracking-[1.25em] uppercase text-right">
+    <p className="text-sm font-extralight tracking-[1.25em] uppercase text-white text-right">
       {text}
     </p>
   );
@@ -115,7 +116,6 @@ const SloganPage: React.FC = () => {
           <PlaceHolder />
           <div className="flex flex-col justify-center items-center gap-3">
             <Image
-              className="invert"
               src="/INVERTED_TRIANGLE.svg"
               width={15}
               height={15}
@@ -128,22 +128,10 @@ const SloganPage: React.FC = () => {
             </div>
           </div>
           <div ref={logoRef} className="flex flex-row opacity-0">
-            <Image
-              src="/yj-logo.svg"
-              width={120}
-              height={24}
-              alt="YJ Logo"
-              placeholder="blur"
-              blurDataURL={dataUrl}
-            />
-            <Image
-              src="/MOUNTAIN_CONTOUR.svg"
-              className="invert"
-              width={140}
-              height={24}
-              alt="YJ Logo"
-              placeholder="blur"
-              blurDataURL={dataUrl}
+            <HypergryphLogo className="fill-white" style={{ width: 100 }} />
+            <MountainContourLogo
+              className="fill-white"
+              style={{ width: 120 }}
             />
           </div>
         </div>

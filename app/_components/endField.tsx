@@ -1,12 +1,11 @@
 'use client';
-import Image from 'next/image';
-import { dataUrl } from './constants';
 import gsap from 'gsap';
 import { Power2 } from 'gsap/all';
 import React from 'react';
 import { useRouter } from 'next/navigation';
 import { GrommetIconsFormDown } from './icons/FormDown';
 import { useAudio } from '../_hooks/audio';
+import EndFieldLogo from './icons/EndFieldLogo';
 
 const switchPageAudio: string = '/audio/char_list_enter.mp3';
 
@@ -71,15 +70,7 @@ const EndFieldPage: React.FC = () => {
           ref={logoRef}
           className="flex items-center justify-center w-screen h-screen p-32 opacity-0"
         >
-          <Image
-            src="/end-field-logo.svg"
-            className="invert items-center justify-between m-auto"
-            width={120}
-            height={120}
-            alt="EndField LOGO"
-            placeholder="blur"
-            blurDataURL={dataUrl}
-          />
+          <EndFieldLogo className="w-28 fill-white items-center justify-between m-auto" />
           <GrommetIconsFormDown className="fixed bottom-14 w-5 h-5 animate-bounce" />
         </div>
       </div>
